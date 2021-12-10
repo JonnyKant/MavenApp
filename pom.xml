@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>app</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://192.168.0.106:8081/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
+
+  <scm>
+    <connection>scm:git:https://github.com/user/project.git</connection>
+    <url>http://github.com/user/project</url>
+    <developerConnection>scm:git:https://github.com/user/project.git</developerConnection>
+  </scm>
+
+  <properties>
+<!--    <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>-->
+    <project.build.outputTimestamp>20</project.build.outputTimestamp>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>openejb-core</artifactId>
+      <version>4.7.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+<dependencyManagement>
+<dependencies>
+  <dependency>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+  </dependency>
+</dependencies>
+
+</dependencyManagement>
+
+
+  <profiles>
+
+    <profile>
+      <id>appserverConfig-dev</id>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>dev</value>
+        </property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <appserver.home>/path/to/dev/appserver</appserver.home>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>appserverConfig-dev-2</id>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>dev-2</value>
+        </property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <appserver.home>/path/to/another/dev/appserver2</appserver.home>
+      </properties>
+    </profile>
+  </profiles>
+<build>
+
+<pluginManagement>
+  <plugins>
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>3.2.0</version>
+    </plugin>
+    <plugin>
+      <artifactId>maven-artifact-plugin</artifactId>
+      <version>3.2.0</version>
+    </plugin>
+    <plugin>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.2.0</version>
+    </plugin>
+  </plugins>
+</pluginManagement>
+</build>
+  <modules>
+    <module>my-app</module>
+    <module>my-webapp</module>
+  </modules>
+</project>
