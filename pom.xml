@@ -147,6 +147,5 @@
 </build>
   <modules>
     <module>my-app</module>
-    <module>my-webapp</module>
   </modules>
 </project>

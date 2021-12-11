@@ -13,11 +13,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="my-webapp" />
         </element>
-        <element id="directory" name="lib">
-          <element id="archive" name="my-app-1.0.jar">
-            <element id="module-output" name="my-app" />
-          </element>
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/my-webapp/target/my-webapp/META-INF/MANIFEST.MF" />
