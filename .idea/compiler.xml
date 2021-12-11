@@ -7,13 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="my-app" />
-        <module name="my-webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="app" target="1.5" />
       <module name="my-app" target="1.8" />
-      <module name="my-webapp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
